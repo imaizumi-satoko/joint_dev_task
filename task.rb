@@ -102,13 +102,10 @@ def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
-  sports.flatten!
-  new_sports = sports.uniq
   puts "ユーザーの趣味一覧"
-  new_sports.each.with_index(1) do |sports, i|
+  sports.flatten!.uniq!.each.with_index(1) do |sports, i|
     puts "No#{i} #{sports}"
   end
-
 end
 
 def q12
@@ -123,14 +120,11 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
-  user_data.store(:age, 32)
-  user_data.store(:address, "沖縄")
-  puts user_data
+  puts user_data.merge!(update_data)
 end
 
 def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
-
   # 以下に回答を記載
   keys =  data.keys
   p keys
